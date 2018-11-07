@@ -1,0 +1,35 @@
+<h1><%= @restaurant.name %></h1>
+<hr class="hr-main">
+
+<div class="section">
+<h3 class="section-header">Information</h3>
+  <p><strong>Address</strong>: <%= @restaurant.address %></p>
+  <p><strong>Phone</strong>: <%= @restaurant.phone_number %></p>
+  <p><strong>Category</strong>: <%= @restaurant.category.capitalize %></p>
+</div>
+
+<%= link_to 'Edit information', edit_restaurant_path(@restaurant), class: 'button' %>
+<%= link_to 'Write a review', "#{@restaurant.id}/reviews/new", class: 'button' %>
+
+<div class="section">
+  <h3 class="section-header">Reviews</h3>
+  <% if @restaurant.reviews.empty? %>
+    <p>No reviews yet.</p>
+  <% else %>
+    <ul>
+      <% @restaurant.reviews.reverse.each do |review| %>
+        <li class="entry">
+          <ul class="list-inline">
+            <% review.rating.times do %>
+              <li><i class="fas fa-star rating"></i></li>
+            <% end %>
+            <% (5 - review.rating).times do %>
+              <li><i class="far fa-star rating"></i></li>
+            <% end %>
+          </ul>
+          <p class="entry-text"><%= review.content %></p>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

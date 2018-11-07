@@ -7,17 +7,21 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-categories = %w[chinese italian japanese french belgian]
+categories = %w[Chinese Italian Japanese French Belgian]
+
+puts "Begin seeding..."
 
 5.times do
   restaurant = Restaurant.new(name: Faker::Coffee.blend_name,
                               address: Faker::Address.full_address,
                               phone_number: Faker::PhoneNumber.phone_number,
                               category: categories.sample)
-  restaurant.save
-  rand(1..4).times do
+  restaurant.save!
+  3.times do
     review = Review.new(rating: rand(0..5), content: Faker::Simpsons.quote)
     review.restaurant = restaurant
-    review.save
+    review.save!
   end
 end
+
+puts "Seeding complete."

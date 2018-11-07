@@ -1,0 +1,16 @@
+<h1>Restaurants</h1>
+<hr class="hr-main">
+
+<% if @restaurants.empty? %>
+  <p>All our data is gone!</p>
+<% else %>
+<ul>
+  <% @restaurants.each do |restaurant| %>
+    <%= link_to restaurant_path(restaurant) do %>
+      <li class="entry entry-link">
+        <h3 class="entry-title"><%= restaurant.name %></h3>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+<% end %>

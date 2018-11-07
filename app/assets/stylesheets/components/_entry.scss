@@ -1,0 +1,26 @@
+.entry {
+  padding: 20px;
+  margin-bottom: 15px;
+  box-shadow: 1px 1px 4px $shadow;
+  text-decoration: none;
+  color: inherit;
+  transition: 150ms;
+
+  .entry-title {
+    font-size: 1.3em;
+    margin: 0;
+    padding: 0;
+  }
+  .entry-text {
+    margin-top: 10px;
+  }
+}
+
+.entry-link {
+  cursor: pointer;
+
+  &:hover {
+    border-left: 5px solid $primary;
+    color: $primary;
+  }
+}

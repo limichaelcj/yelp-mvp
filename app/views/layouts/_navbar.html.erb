@@ -1,0 +1,12 @@
+<div class="navbar">
+  <div class="container" style="height: 100%;">
+    <div class="flex-row">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "logo.png", height: 50 %>
+      <% end %>
+
+      <%= link_to "Restaurants", restaurants_path, class: "navbar-item" %>
+      <%= link_to "New", new_restaurant_path, class: "navbar-item" %>
+    </div>
+  </div>
+</div>
